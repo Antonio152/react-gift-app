@@ -3,10 +3,12 @@ import { AddCategory, GiftGrid } from './components/'
 
 const GiftApp = () => {
   const [categories, setCategories] = useState<string[]>(['Naruto'])
+  const [limit, setLimit] = useState<string>('10')
 
-  const addCategory = (value: string) => {
-    if (categories.includes(value)) return
-    setCategories([...categories, value])
+  const addCategory = (category: string,limit:string) => {
+    if (categories.includes(category)) return
+    setCategories([...categories, category])
+    setLimit(limit)
   }
 
   return (
@@ -14,7 +16,7 @@ const GiftApp = () => {
       <h1>GiftApp</h1>
       <AddCategory addCategory={addCategory} />
       {categories.map((item) => (
-        <GiftGrid key={item} category={item} limitGifts={'10'}/>
+        <GiftGrid key={item} category={item} limitGifts={limit}/>
       ))}
     </>
   )

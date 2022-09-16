@@ -7,10 +7,6 @@ export type CategoryGridProps = {
     category: string;
     limitGifts:string;
 };
-export type CategoryProps ={
-  addCategory: (value:string) => void,
-  addLimit: (value:string) => void
-}
 export type GiftContentApi = {
     id: string;
     title: string;
@@ -19,4 +15,7 @@ export type GiftContentApi = {
         url: string
       }
     };
-  };
+};
+export type CategoryProps ={
+  addCategory: (category:string,limit:string) => void
+}

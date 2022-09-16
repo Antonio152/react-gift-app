@@ -7,7 +7,7 @@
     padding: 60px;
   }
   
-  input {
+  .inputSearch {
     background-color: white;
     border-radius: 5px;
     border: 1px solid rgb(97, 32, 158);
@@ -16,7 +16,31 @@
     outline: none;
     padding: 10px 15px;
     width: 100%;
-    display: inline-block;
+  }
+  .inputNumber{
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid rgb(97, 32, 158);
+    color: black;
+    font-size: 1.2rem;
+    outline: none;
+    padding: 10px 15px;
+    width: 20%;
+    margin-top: 10px;
+  }
+  .btnSearch{
+    margin-left: 10px;
+    border-radius: 20px;
+    border: 1px solid rgb(97, 32, 158);
+    background: white;
+    color: black;
+    font-size: 0.9rem;
+    padding: 8px 14px;
+    cursor: pointer;
+  }
+  .btnSearch:hover{
+    background: rgb(97, 32, 158);
+    color: white;
   }
   
   h2 {
@@ -63,3 +87,12 @@
     width: 100%;
   }
   
+  @media (max-width:800px){
+    .inputNumber{
+      width: 100%;
+    }
+    .btnSearch{
+      margin-top: 10px;
+      margin-left: 2px;
+    }
+  }

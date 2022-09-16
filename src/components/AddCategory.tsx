@@ -1,30 +1,46 @@
-import React, { ChangeEvent, KeyboardEvent, useState } from 'react'
-type CategoryProps ={
-  addCategory: (value:string) => void
-}
+import React, { ChangeEvent, useState } from 'react'
+import { cleanCategory, cleanNumbers } from '../helper'
+import { CategoryProps } from '../types'
 export const AddCategory = ({ addCategory }:CategoryProps) => {
-  const [inputValue, setInputValue] = useState('')
+  const [inputValues, setInputValues] = useState({
+    category:'',
+    limit:''
+  })
+  const {category,limit} = inputValues
 
   const onChangeEvent = ({ target }: ChangeEvent<HTMLInputElement>) => {
-    setInputValue(target.value)
+    setInputValues({...inputValues,[target.name]:target.value})
   }
 
-  const handleKeyDown = ({ key, target }:KeyboardEvent) => {
-    if (inputValue.trim().length <= 1) return
-    const result = (target as HTMLInputElement).value
-    if (key === 'Enter') {
-      addCategory(result.trim())
-      setInputValue('')
-    }
+  const sendCategory = () => {
+    const validLimit = cleanNumbers(limit)
+    const validCategory = cleanCategory(category)
+    addCategory(validCategory,validLimit)
+    setInputValues({
+      category:'',
+      limit:''
+    })
   }
+  
   return (
-    <input
-      type="text"
-      placeholder="Buscar Gift"
-      name="inputValue"
-      value={inputValue}
-      onChange={onChangeEvent}
-      onKeyDown={handleKeyDown}
-    />
+    <>
+      <input
+        type="text"
+        placeholder="Search Gift"
+        name="category"
+        className='inputSearch'
+        value={category}
+        onChange={onChangeEvent}
+      />
+      <input
+        type="text"
+        placeholder="Number of gifts"
+        name="limit"
+        className='inputNumber'
+        value={limit}
+        onChange={onChangeEvent}
+      />
+      <button className='btnSearch' disabled={ (category.trim() === '' || limit.trim() === '') ? true : false } onClick={sendCategory}>Search</button>
+    </>
   )
 }
