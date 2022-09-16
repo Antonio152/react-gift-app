@@ -11,7 +11,8 @@ export const useFetchContent = (category: string, limit:string) => {
   }
   useEffect(() => {
     getImages()
-  }, [category])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return { isLoading, images }
 }
