@@ -8,6 +8,7 @@
   
 Vite web application to search gifts.
 
+Demo app: https://antonio152.github.io/react-gift-app/
 
 ## Installation
 
