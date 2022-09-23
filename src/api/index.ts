@@ -1,4 +1,5 @@
 import { GiftContentApi } from '../types'
+import fetch from 'cross-fetch';
 export const getGifts = async (category: string, limit:string) => {
   const url = `https://api.giphy.com/v1/gifs/search?api_key=945VAR9lOvewomJua1ryjeEjkzjFQDjj&q=${category}&limit=${limit}`
   const response = await fetch(url)

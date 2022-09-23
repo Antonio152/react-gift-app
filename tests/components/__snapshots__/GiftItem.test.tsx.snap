@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing de componente GiftItem Debe de hacer match con el Snapshot 1`] = `
+<div>
+  <div
+    class="card"
+  >
+    <img
+      alt="NarutoImagen"
+      src="https://www.google.com/"
+    />
+    <p>
+      NarutoImagen
+    </p>
+  </div>
+</div>
+`;

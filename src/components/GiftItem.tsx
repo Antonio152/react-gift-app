@@ -11,3 +11,4 @@ const GiftItem = ({ title, url }:GiftContent) => {
 }
 
 export default GiftItem
+
